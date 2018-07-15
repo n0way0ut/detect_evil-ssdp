@@ -26,5 +26,17 @@ Once you have verified that the extension has loaded correctly, you should be ab
 To test it, run evil-ssdp on a different host on the same network.
 
 To test using osqueryi, run:
-`sudo osqueryi --nodisable_extensions --extension /var/osquery/extensions/detect_ssdp.py --verbose`
+`osqueryi --nodisable_extensions --extension /var/osquery/extensions/detect_ssdp.py --verbose`
+
+## Example
+```
+$ osqueryi --nodisable_extensions --extension /var/osquery/extensions/detect_ssdp.py 
+Using a virtual database. Need help, type '.help'
+osquery> select * from detect_ssdp;
++-------------+----------------------------------------------+-------+-----------------------------------------------------------+
+| ssdp_ip     | location                                     | st    | usn                                                       |
++-------------+----------------------------------------------+-------+-----------------------------------------------------------+
+| 192.168.2.4 | http://192.168.2.4:8888/ssdp/device-desc.xml | d:n:n | uuid:e415ce0a-3e62-22d0-ad3f-42ec42e36563:upnp-rootdevice |
++-------------+----------------------------------------------+-------+-----------------------------------------------------------+
+```
 
